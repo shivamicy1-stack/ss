@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RO Pure Jal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='logo-image.jpg') }}" alt="RO Pure Jal Logo" style="height: 80px;">
+        <h1>RO Pure Jal</h1>
+        <p class="slogan">Pure water make your life healthy</p>
+    </header>
+
+    <section>
+        <h2>Our RO Models</h2>
+        <div class="models">
+        {% for model in models %}
+            <div class="model">
+                <img src="{{ url_for('static', filename=model.image) }}" alt="{{ model.name }} Model" style="height: 140px;">
+                <p>{{ model.name }}</p>
+            </div>
+        {% endfor %}
+        </div>
+    </section>
+
+    <section>
+        <h2>Offers</h2>
+        <ul>
+            <li>Free Installation</li>
+            <li>First-time Maintenance Charge: Zero</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Our Service</h2>
+        <p>We install our own branded RO purifier at your home. The monthly charge is ₹300.</p>
+        <p>We cover areas within 1 km from our office at <strong>naka bipass ayodhaya uttar pradesh</strong>.</p>
+    </section>
+
+    <section>
+        <h2>Contact Us</h2>
+        <p>Phone: <a href="tel:+916387295382">6387295382</a></p>
+        <p>Email: <a href="mailto:ropurejal@gmail.com">ropurejal@gmail.com</a></p>
+    </section>
+
+    <nav>
+        <a href="{{ url_for('inquiry') }}">Book Installation</a> |
+        <a href="{{ url_for('reviews_page') }}">Customer Reviews</a>
+    </nav>
+
+    {% include 'footer.html' %}
+</body>
+</html>
